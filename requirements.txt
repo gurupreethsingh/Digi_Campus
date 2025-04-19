@@ -1,0 +1,60 @@
+----------------------------------------------------------------------------------------
+Homepage requirements :
+----------------------------------------------------------------------------------------
+1. when any one clicks on logo from any other page from the header. it opens the homepage.
+2. when user users the homepage url.  (http://localhost:5173 / http://localhost:5174) opens homepage
+3. when user enters  /home or /homepage as url , it opens the homepage. (witout login) 
+4. when user clicks on the home link from the homepage from header it opens or navigates to homepage. 
+5. when user clicks on the about link from the homepage even without login user gets navigated to about page.
+6. when user clicks on the contact link from the homepage even without login user gets navigated to contact page.
+7. when user clicks on the blogs link from the homepage even without login user gets navigated to all blogs page.
+8.  when user enters  /home or /homepage as url , it opens the homepage. (with login) 
+9.  when user clicks on the home link from the homepage from header it opens or navigates to homepage (after loggin in)
+10. when user clicks on the about link from the homepage even without login user gets navigated to about page.(after loggin in)
+11. when user clicks on the contact link from the homepage even without login user gets navigated to contact page.(after loggin in)
+12. when user clicks on the blogs link from the homepage even without login user gets navigated to all blogs page.(after loggin in)
+13. when the user is not logged in he should not see the dashboard link in the header. 
+14. when the user is not logged in the user should not see his name (drop down) in the right hand side of the header
+15. when the user is logged in he should  see the dashboard link in the header. 
+16. when the user is logged in the user should see his name (drop down) in the right hand side of the header
+17. The main content of the homepage. should have read more link. in red color when clicked should navigate the user to about page.(with or without loggin in)
+18. the main page should contain the website name (Digital Campus) 
+19. Get Started link when clicked, should navigate the user, to contact page. (with or without loggin in)
+20. Learn more link when clicked , should navigate the user to the about page. (with or without loggin in) 
+21. when the user click on the home link from the footer, gets navigated to homepage. (with or without login) 
+22. when the user click on the about link from the footer, gets navigated to about page. (with or without login) 
+23. when the user click on the contact link from the footer, gets navigated to contact page. (with or without login) 
+24. when the user click on the Facebook link from the footer, gets navigated to facebook page in a new tab. (with or without login) 
+25. when the user click on the Twitter link from the footer, gets navigated to twitter page in a new tab. (with or without login) 
+26. when the user click on the LinkedIn link from the footer, gets navigated to LinkedIn page in a new tab. (with or without login) 
+27. when the user click on the Privacy Policy link from the footer, gets navigated to Privacy Policy page. (with or without login) 
+28. when the user click on the Return Policy link from the footer, gets navigated to Return Policy page. (with or without login) 
+29. Final footer left side should have the copy right text (© 2025 ecoders, Inc. All rights reserved.)
+30. Final footer right side should contain social media link. facebook, twitter, github, instagra, when click should open the respective pages. in new tabs. (with or without loggin in) 
+
+----------------------------------------------------------------------------------------
+Teacher story / requirements :
+----------------------------------------------------------------------------------------
+1. any user can visit home, about, contact blogs, pages without even loggin in. 
+2. Any user, after login, Dashboard link will be visible in the header. 
+3. Any user after login. his name is going to appear at the right side of the header as a drop down to profile page and logout link. 
+4. No page for registering a super admin, we have to add super admin from the mongodb , backend. 
+5. Only super admin can add teacher or students. he cannot. register any one as superadmin. 
+6. Any user teacher or student from the contact page should send a message with their creadentials. asking to make them teacher or student into the application. 
+7. When the user sends the request for teacher or student. superadmin has to login and check the AllMessages page to see all the request. 
+8. can send replies to each user after registering them into the application as teacher or student. from the register page. 
+9. only superadmin can go to register page and register the user as teache or student. then from AllMessages , ReplyMessage page send a reply saying registered as techer or student. 
+10. superadmin can check all the replies from the AllReplies page. 
+11. superadmin can go to addblog , all blogs and single blogs page. 
+12. super admin only can add blog, (no other user can add a blog)
+
+----------------------------------------------------------------------------------------
+Teacher Story / requirements. 
+----------------------------------------------------------------------------------------
+1. from header click on teacher link., it should open teacher login page. 
+2. When the teacher logs in teacher gets navigated to the teacher dashboard. 
+3. without login also, teacher can visit home, about , contact, blogs. 
+4. only after login , teacher can visti the dashboard, profile, 
+5. teacher after login. can click on his name from the header to reveale the drop down. to see the profie and logout link .. 
+6. when teacher is logged in and clicks on the profile page it opens the profile page. 
+

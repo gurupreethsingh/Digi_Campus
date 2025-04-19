@@ -8,6 +8,7 @@ import {
   FaThLarge,
   FaTh,
 } from "react-icons/fa";
+import globalBackendRoute from "../../config/Config";
 
 const AllReplies = () => {
   const [messages, setMessages] = useState([]);
@@ -129,7 +130,10 @@ const AllReplies = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-6 flex-wrap">
+        <div>
+          <p className="text-2xl font-bold">All Replies</p>
+        </div>
         <div className="flex space-x-2 ml-auto">
           <input
             type="text"

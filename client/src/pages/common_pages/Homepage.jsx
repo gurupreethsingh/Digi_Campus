@@ -29,7 +29,7 @@ export default function Homepage() {
           </div>
 
           <div className="text-center">
-            <h1 className="heroHeading">Digital Campus Management System</h1>
+            <h1 className="heroHeading">Digital Campus</h1>
             <p className="heroSubtext">
               A comprehensive solution to streamline Digital Campus operations,
               manage student care, and enhance administrative efficiency.

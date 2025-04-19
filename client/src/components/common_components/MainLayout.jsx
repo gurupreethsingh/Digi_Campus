@@ -95,7 +95,7 @@ const MainLayout = () => {
           <Route
             path="/register"
             element={
-              <PublicRoute>
+              <PublicRoute allowedRoles={["superadmin"]}>
                 <PageTitle title="Register">
                   <Register />
                 </PageTitle>

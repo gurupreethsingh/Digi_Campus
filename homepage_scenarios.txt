@@ -1,0 +1,145 @@
+----------------------------------------------------------------------------------------
+Homepage requirements :
+----------------------------------------------------------------------------------------
+1. when any one clicks on logo from any other page from the header. it opens the homepage.
+2. when user users the homepage url.  (http://localhost:5173 / http://localhost:5174) opens homepage
+3. when user enters  /home or /homepage as url , it opens the homepage. (witout login) 
+4. when user clicks on the home link from the homepage from header it opens or navigates to homepage. 
+5. when user clicks on the about link from the homepage even without login user gets navigated to about page.
+6. when user clicks on the contact link from the homepage even without login user gets navigated to contact page.
+7. when user clicks on the blogs link from the homepage even without login user gets navigated to all blogs page.
+8.  when user enters  /home or /homepage as url , it opens the homepage. (with login) 
+9.  when user clicks on the home link from the homepage from header it opens or navigates to homepage (after loggin in)
+10. when user clicks on the about link from the homepage even without login user gets navigated to about page.(after loggin in)
+11. when user clicks on the contact link from the homepage even without login user gets navigated to contact page.(after loggin in)
+12. when user clicks on the blogs link from the homepage even without login user gets navigated to all blogs page.(after loggin in)
+13. when the user is not logged in he should not see the dashboard link in the header. 
+14. when the user is not logged in the user should not see his name (drop down) in the right hand side of the header
+15. when the user is logged in he should  see the dashboard link in the header. 
+16. when the user is logged in the user should see his name (drop down) in the right hand side of the header
+17. The main content of the homepage. should have read more link. in red color when clicked should navigate the user to about page.(with or without loggin in)
+18. the main page should contain the website name (Digital Campus) 
+19. Get Started link when clicked, should navigate the user, to contact page. (with or without loggin in)
+20. Learn more link when clicked , should navigate the user to the about page. (with or without loggin in) 
+21. when the user click on the home link from the footer, gets navigated to homepage. (with or without login) 
+22. when the user click on the about link from the footer, gets navigated to about page. (with or without login) 
+23. when the user click on the contact link from the footer, gets navigated to contact page. (with or without login) 
+24. when the user click on the Facebook link from the footer, gets navigated to facebook page in a new tab. (with or without login) 
+25. when the user click on the Twitter link from the footer, gets navigated to twitter page in a new tab. (with or without login) 
+26. when the user click on the LinkedIn link from the footer, gets navigated to LinkedIn page in a new tab. (with or without login) 
+27. when the user click on the Privacy Policy link from the footer, gets navigated to Privacy Policy page. (with or without login) 
+28. when the user click on the Return Policy link from the footer, gets navigated to Return Policy page. (with or without login) 
+29. Final footer left side should have the copy right text (© 2025 ecoders, Inc. All rights reserved.)
+30. Final footer right side should contain social media link. facebook, twitter, github, instagra, when click should open the respective pages. in new tabs. (with or without loggin in) 
+
+
+
+Test scenarios for the homepage of **Digital Campus**,
+
+-  **Functional Testing**
+-  **Integration Testing**
+-  **System Testing**
+-  **Sanity Testing**
+-  **Ad Hoc Testing**
+-  **Additional Negative & Edge Cases**
+
+---
+
+## ✅ Functional Test Scenarios
+
+| # | Functional Scenario |
+|--|----------------------|
+| 1 | When the user enters the base URL (`/` or `/home` or `/homepage`), they should be navigated to the homepage without logging in. |
+| 2 | When the user enters the base URL (`/` or `/home` or `/homepage`) after logging in, they should be navigated to the homepage. |
+| 3 | When the user clicks on the logo from any page, they should be redirected to the homepage. |
+| 4 | When the user clicks the “Home” link in the header, they should be redirected to the homepage (with or without login). |
+| 5 | When the user clicks the “About” link in the header, they should be redirected to the About page (with or without login). |
+| 6 | When the user clicks the “Contact” link in the header, they should be redirected to the Contact page (with or without login). |
+| 7 | When the user clicks the “Blogs” link in the header, they should be redirected to All Blogs page (with or without login). |
+| 8 | When the user is not logged in, they should **not** see the “Dashboard” link in the header. |
+| 9 | When the user is not logged in, they should **not** see their name or dropdown in the header. |
+| 10 | When the user is logged in, they should see the “Dashboard” link in the header. |
+| 11 | When the user is logged in, they should see their name as a dropdown on the right side of the header. |
+| 12 | When the user clicks the red “Read More” link on the homepage, they should be taken to the About page. |
+| 13 | When the user clicks the “Get Started” link, they should be redirected to the Contact page. |
+| 14 | When the user clicks the “Learn More” link, they should be redirected to the About page. |
+| 15 | When the user clicks the “Home” link in the footer, they should be redirected to the homepage. |
+| 16 | When the user clicks the “About” link in the footer, they should be redirected to the About page. |
+| 17 | When the user clicks the “Contact” link in the footer, they should be redirected to the Contact page. |
+| 18 | When the user clicks the Facebook link in the footer, it should open Facebook in a new tab. |
+| 19 | When the user clicks the Twitter link in the footer, it should open Twitter in a new tab. |
+| 20 | When the user clicks the LinkedIn link in the footer, it should open LinkedIn in a new tab. |
+| 21 | When the user clicks the Privacy Policy link, they should be redirected to the Privacy Policy page. |
+| 22 | When the user clicks the Return Policy link, they should be redirected to the Return Policy page. |
+| 23 | The footer should show the copyright text: “© 2025 ecoders, Inc. All rights reserved.” |
+| 24 | The final right section of the footer should contain working links to Facebook, Twitter, GitHub, and Instagram opening in new tabs. |
+
+---
+
+## 🔗 Integration Test Scenarios
+
+| # | Integration Scenario |
+|--|------------------------|
+| 1 | Ensure header navigation works across all pages and returns to homepage properly. |
+| 2 | Ensure homepage links like “Read More,” “Get Started,” and “Learn More” integrate correctly with About and Contact routes. |
+| 3 | Ensure footer links work across all modules (About, Contact, Blogs). |
+| 4 | Ensure user authentication state (logged in/logged out) controls header visibility (Dashboard, dropdown). |
+| 5 | Ensure that navigating to homepage (`/`, `/home`, `/homepage`) always loads header, footer, and main section components correctly. |
+| 6 | Verify routing behavior for social media icons in footer to external platforms. |
+| 7 | Ensure Redux/Context/API state properly reflects login state for header updates. |
+
+---
+
+## 🖥️ System Test Scenarios
+
+| # | System Scenario |
+|--|------------------|
+| 1 | Open the site in different browsers (Chrome, Firefox, Safari, Edge) and verify homepage loads and navigation works. |
+| 2 | Open the homepage on mobile, tablet, and desktop viewports and confirm layout, links, and UI render correctly. |
+| 3 | Homepage should load within 2-3 seconds under normal network conditions. |
+| 4 | Application should gracefully redirect to homepage for invalid root paths like `/homepage/`, `/home/`. |
+| 5 | Pressing the browser back button from a navigated page should correctly return to homepage. |
+| 6 | Verify SEO and meta tags (title: Digital Campus) load in homepage HTML. |
+| 7 | Check that `robots.txt` allows homepage indexing if applicable. |
+
+---
+
+## 🎯 Sanity Test Scenarios
+
+| # | Sanity Scenario |
+|--|------------------|
+| 1 | Open homepage from root (`/`) and verify core sections load. |
+| 2 | Check that all links in the header and footer work. |
+| 3 | Check that “Get Started”, “Learn More”, “Read More” links are functional. |
+| 4 | Check if homepage loads for both authenticated and unauthenticated users. |
+| 5 | Check whether login state toggles visibility of dashboard and dropdown. |
+
+---
+
+## 🔍 AdHoc Test Scenarios
+
+| # | AdHoc Scenario |
+|--|------------------|
+| 1 | Try entering `http://localhost:5173///home/////` and verify homepage loads. |
+| 2 | Try accessing homepage with network offline and observe fallback or error behavior. |
+| 3 | Try navigating with query params `/home?test=true` and verify homepage still works. |
+| 4 | Try opening multiple links from homepage in new tabs and check consistency. |
+| 5 | Try copying and pasting a footer link into a new tab manually. |
+| 6 | Rapidly toggle between login/logout and observe if homepage header updates in real time. |
+| 7 | Resize browser while on homepage and confirm layout elements adjust responsively. |
+
+---
+
+## 🚦 Negative & Edge Case Test Scenarios
+
+| # | Negative / Edge Scenario |
+|--|----------------------------|
+| 1 | Try opening homepage with invalid token and confirm graceful fallback. |
+| 2 | Try clicking social media icons with pop-up blocker enabled. |
+| 3 | Try accessing `/home` or `/homepage` with broken backend and confirm UI doesn’t crash. |
+| 4 | Inject script via search/query param in `/home?name=<script>` to check for XSS protection. |
+| 5 | Click on footer links while JavaScript is disabled — verify fallback navigation. |
+| 6 | Login as user → logout → hit `/home` — should still allow access. |
+| 7 | Tamper with localStorage token and refresh homepage — UI should behave appropriately. |
+
+---
