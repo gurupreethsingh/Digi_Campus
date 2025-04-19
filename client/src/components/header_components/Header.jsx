@@ -78,7 +78,7 @@ export default function Header() {
         <div className="containerWidth flex items-center justify-between py-4">
           {/* Logo */}
           <div className="flex lg:flex-1">
-            <CustomeLink linkAddress="/home" linkName="HMS" />
+            <CustomeLink linkAddress="/home" linkName="DIGI CAMPUS" />
           </div>
 
           {/* Hamburger Menu */}

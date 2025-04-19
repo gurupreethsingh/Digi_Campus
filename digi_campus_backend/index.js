@@ -8,7 +8,9 @@ const path = require("path");
 const fs = require("fs");
 
 //import user routes.
-const userRoutes = require("./routes/UserRoutes");
+const UserRoutes = require("./routes/UserRoutes");
+const ContactRoutes = require("./routes/ContactRoutes");
+const BlogRoutes = require("./routes/BlogRoutes");
 
 dotenv.config();
 const app = express();
@@ -27,7 +29,9 @@ app.use(bodyParser.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Routes
-app.use("/api", userRoutes);
+app.use("/api", UserRoutes);
+app.use("/api", ContactRoutes);
+app.use("/api", BlogRoutes);
 
 const PORT = process.env.PORT || 3009;
 

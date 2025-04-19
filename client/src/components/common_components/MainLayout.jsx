@@ -11,6 +11,9 @@ import Homepage from "../../pages/common_pages/Homepage";
 import PageNotFound from "../../pages/common_pages/PageNotFound";
 import AboutUs from "../../pages/common_pages/AboutUs";
 import ContactUs from "../../pages/contact_pages/ContactUs";
+import AllMessages from "../../pages/contact_pages/AllMessages";
+import ReplyMessage from "../../pages/contact_pages/ReplyMessage";
+import AllReplies from "../../pages/contact_pages/AllReplies";
 import AllBlogs from "../../pages/blog_pages/AllBlogs";
 import SingleBlog from "../../pages/blog_pages/SingleBlog";
 import AddBlog from "../../pages/blog_pages/AddBlog";
@@ -23,9 +26,6 @@ import AllUsers from "../../pages/superadmin_pages/AllUsers";
 import SingleUser from "../../pages/superadmin_pages/SingleUser";
 import Profile from "../../pages/user_pages/Profile";
 import UpdateProfile from "../../pages/user_pages/UpdateProfile";
-import AllMessages from "../../pages/contact_pages/AllMessages";
-import ReplyMessage from "../../pages/contact_pages/ReplyMessage";
-import AllReplies from "../../pages/contact_pages/AllReplies";
 
 const MainLayout = () => {
   return (

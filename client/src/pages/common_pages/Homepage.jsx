@@ -20,7 +20,7 @@ export default function Homepage() {
         <div className="mx-auto max-w-2xl py-section-sm sm:py-section-md lg:py-section-lg">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="announcement">
-              Announcing our next level of Treatment.{" "}
+              Announcing our next level of Digital Campus.{" "}
               <a href="/about-us" className="text-red-600 font-bold">
                 <span aria-hidden="true" className="absolute inset-0" />
                 Read more <span aria-hidden="true">&rarr;</span>
@@ -29,10 +29,10 @@ export default function Homepage() {
           </div>
 
           <div className="text-center">
-            <h1 className="heroHeading">Hospital Management System</h1>
+            <h1 className="heroHeading">Digital Campus Management System</h1>
             <p className="heroSubtext">
-              A comprehensive solution to streamline hospital operations, manage
-              patient care, and enhance administrative efficiency.
+              A comprehensive solution to streamline Digital Campus operations,
+              manage student care, and enhance administrative efficiency.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a

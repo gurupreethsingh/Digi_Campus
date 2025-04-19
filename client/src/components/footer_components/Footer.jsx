@@ -1,6 +1,5 @@
 import React from "react";
 import { CiFacebook, FaGithub, CiTwitter, CiLinkedin } from "../../icons/Icons";
-import SubscriptionForm from "./SubscriptionForm";
 
 const Footer = () => {
   return (
@@ -63,13 +62,12 @@ const Footer = () => {
           <div>
             <p className="font-bold mb-2 text-lg">Address</p>
             <nav className="flex flex-col gap-2">
-              <span className="text-gray-700">HMS</span>
+              <span className="text-gray-700">Digi Campus</span>
               <span className="text-gray-700">Bangalore</span>
               <span className="text-gray-700">560057</span>
             </nav>
           </div>
         </div>
-        <SubscriptionForm />
       </div>
 
       {/* Bottom Footer */}
