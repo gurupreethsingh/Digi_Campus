@@ -16,7 +16,17 @@ const AllUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get(`${globalBackendRoute}/api/all-users`);
+        const token = localStorage.getItem("token");
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+
+        const res = await axios.get(
+          `${globalBackendRoute}/api/all-users`,
+          config
+        );
         setUsers(res.data);
         setTotalCount(res.data.length);
       } catch (error) {

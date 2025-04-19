@@ -10,9 +10,10 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
+    role: "student", // default role
   });
   const [error, setError] = useState("");
-  const { name, email, password } = formData;
+  const { name, email, password, role } = formData;
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -34,6 +35,8 @@ const Register = () => {
     if (!password.match(passwordRegex))
       return "Password must be 8+ characters with uppercase, lowercase, number, and special character.";
 
+    if (!["teacher", "student"].includes(role)) return "Invalid role selected.";
+
     return null;
   };
 
@@ -45,28 +48,11 @@ const Register = () => {
     try {
       await axios.post(`${globalBackendRoute}/api/register`, formData);
       alert("Registration successful. Redirecting to login.");
-      navigate("/login");
+      navigate("/superadmin-login");
     } catch {
       setError("Registration failed. Try again.");
     }
   };
-
-  const renderInput = (label, type, id) => (
-    <div>
-      <label htmlFor={id} className="formLabel">
-        {label}
-      </label>
-      <input
-        id={id}
-        name={id}
-        type={type}
-        value={formData[id]}
-        onChange={handleChange}
-        required
-        className="mt-2 formInput"
-      />
-    </div>
-  );
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -81,9 +67,67 @@ const Register = () => {
         {error && <p className="errorText mb-4">{error}</p>}
 
         <form onSubmit={handleSubmit} className="space-y-5">
-          {renderInput("Name", "text", "name")}
-          {renderInput("Email address", "email", "email")}
-          {renderInput("Password", "password", "password")}
+          <div>
+            <label htmlFor="name" className="formLabel">
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="formInput mt-2"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="email" className="formLabel">
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="formInput mt-2"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="password" className="formLabel">
+              Password
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="formInput mt-2"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="role" className="formLabel">
+              Register as
+            </label>
+            <select
+              id="role"
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              required
+              className="formInput mt-2"
+            >
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+            </select>
+          </div>
 
           <button type="submit" className="primaryBtn">
             Register
@@ -91,8 +135,8 @@ const Register = () => {
         </form>
 
         <p className="mt-6 text-center paragraphTextMobile lg:paragraphText">
-          Already have an account?{" "}
-          <a href="/login" className="linkTextMobile lg:linkText">
+          Superadmin sign in page?{" "}
+          <a href="/superadmin-login" className="linkTextMobile lg:linkText">
             Sign in
           </a>
         </p>

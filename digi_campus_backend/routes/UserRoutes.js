@@ -1,8 +1,5 @@
 const express = require("express");
 const {
-  registerSuperadmin,
-  registerTeacher,
-  registerStudent,
   loginSuperadmin,
   loginTeacher,
   loginStudent,
@@ -18,6 +15,7 @@ const {
   getTeacherCount,
   getSuperadminCount,
   getLoggedInUser,
+  registerPublicUser,
 } = require("../controllers/UserController.js");
 
 const multer = require("multer");
@@ -70,13 +68,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // === Public Auth Routes ===
-router.post(
-  "/register-superadmin",
-  upload.single("avatar"),
-  registerSuperadmin
-);
-router.post("/register-teacher", upload.single("avatar"), registerTeacher);
-router.post("/register-student", upload.single("avatar"), registerStudent);
+router.post("/register", upload.single("avatar"), registerPublicUser);
 
 router.post("/login-superadmin", loginSuperadmin);
 router.post("/login-teacher", loginTeacher);

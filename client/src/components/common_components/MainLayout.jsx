@@ -17,7 +17,7 @@ import AllReplies from "../../pages/contact_pages/AllReplies";
 import AllBlogs from "../../pages/blog_pages/AllBlogs";
 import SingleBlog from "../../pages/blog_pages/SingleBlog";
 import AddBlog from "../../pages/blog_pages/AddBlog";
-import Login from "../../pages/user_pages/Login";
+import SuperAdminLogin from "../../pages/superadmin_pages/SuperAdminLogin";
 import Register from "../../pages/user_pages/Register";
 import ForgotPassword from "../../pages/user_pages/ForgotPassword";
 import ResetPassword from "../../pages/user_pages/ResetPassword";
@@ -83,11 +83,11 @@ const MainLayout = () => {
             }
           />
           <Route
-            path="/login"
+            path="/superadmin-login"
             element={
               <PublicRoute>
-                <PageTitle title="Login">
-                  <Login />
+                <PageTitle title="Superadmin Login">
+                  <SuperAdminLogin />
                 </PageTitle>
               </PublicRoute>
             }

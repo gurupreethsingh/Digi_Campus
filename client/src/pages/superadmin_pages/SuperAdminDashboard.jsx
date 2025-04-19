@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { FaThList, FaThLarge, FaTh, FaUser } from "react-icons/fa";
+import axios from "axios";
+import globalBackendRoute from "../../config/Config";
 import DashboardCard from "../../components/common_components/DashboardCard";
 import DashboardLayout from "../../components/common_components/DashboardLayout";
 import LeftSidebarNav from "../../components/common_components/LeftSidebarNav";
@@ -15,43 +17,77 @@ const SuperadminDashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(8);
 
+  const [counts, setCounts] = useState({
+    total: 0,
+    superadmin: 0,
+    teacher: 0,
+    student: 0,
+  });
+
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (!token) return navigate("/login");
+    if (!token) return navigate("/home");
     try {
       const decoded = jwtDecode(token);
       setUserId(decoded.id);
     } catch (error) {
-      navigate("/login");
+      navigate("/home");
     }
   }, [navigate]);
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const config = { headers: { Authorization: `Bearer ${token}` } };
+
+        const [total, superadmin, teacher, student] = await Promise.all([
+          axios.get(`${globalBackendRoute}/api/get-totaluser-count`, config),
+          axios.get(`${globalBackendRoute}/api/get-superadmin-count`, config),
+          axios.get(`${globalBackendRoute}/api/get-teacher-count`, config),
+          axios.get(`${globalBackendRoute}/api/get-student-count`, config),
+        ]);
+
+        setCounts({
+          total: total.data.totalUserCount,
+          superadmin: superadmin.data.count,
+          teacher: teacher.data.count,
+          student: student.data.count,
+        });
+      } catch (error) {
+        console.error("Failed to fetch counts", error);
+      }
+    };
+
+    fetchCounts();
+  }, []);
 
   const allCards = [
     {
       title: "Total Users",
-      value: 250,
+      value: counts.total,
       link: "/all-users",
       icon: <FaUser className="text-blue-600" />,
       bgColor: "bg-blue-100",
     },
     {
       title: "Superadmins",
-      value: 5,
-      link: "/all-superadmins",
+      value: counts.superadmin,
+      link: "/all-users",
       icon: <FaUser className="text-purple-600" />,
       bgColor: "bg-purple-100",
     },
     {
       title: "Teachers",
-      value: 40,
-      link: "/all-teachers",
+      value: counts.teacher,
+      link: "/all-users",
       icon: <FaUser className="text-green-600" />,
       bgColor: "bg-green-100",
     },
     {
       title: "Students",
-      value: 200,
-      link: "/all-students",
+      value: counts.student,
+      link: "/all-users",
       icon: <FaUser className="text-yellow-600" />,
       bgColor: "bg-yellow-100",
     },
