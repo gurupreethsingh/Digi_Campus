@@ -1,8 +1,8 @@
 const express = require("express");
 const {
   loginSuperadmin,
-  loginTeacher,
-  loginStudent,
+  teacherLogin,
+  studentLogin,
   forgotPassword,
   verifyOTP,
   resetPassword,
@@ -71,8 +71,8 @@ const upload = multer({ storage });
 router.post("/register", upload.single("avatar"), registerPublicUser);
 
 router.post("/login-superadmin", loginSuperadmin);
-router.post("/login-teacher", loginTeacher);
-router.post("/login-student", loginStudent);
+router.post("/teacher-login", teacherLogin);
+router.post("/student-login", studentLogin);
 
 router.post("/forgot-password", forgotPassword);
 router.post("/verify-otp", verifyOTP);

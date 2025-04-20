@@ -36,12 +36,9 @@ export default function UpdateProfile() {
     const fetchUserData = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await axios.get(
-          `${globalBackendRoute}/api/getUserById/${id}`,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
+        const res = await axios.get(`${globalBackendRoute}/api/user/${id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         const user = res.data;
         setFormData({
           ...user,
@@ -92,7 +89,7 @@ export default function UpdateProfile() {
       }
       if (avatar) form.append("avatar", avatar);
 
-      await axios.put(`${globalBackendRoute}/api/update-profile/${id}`, form, {
+      await axios.put(`${globalBackendRoute}/api/update-user/${id}`, form, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

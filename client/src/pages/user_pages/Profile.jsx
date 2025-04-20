@@ -22,7 +22,7 @@ export default function Profile() {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          `${globalBackendRoute}/api/getUserById/${id}`,
+          `${globalBackendRoute}/api/user/${id}`, // ✅ fixed route
           {
             headers: { Authorization: `Bearer ${token}` },
           }

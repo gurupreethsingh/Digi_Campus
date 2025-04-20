@@ -1,4 +1,3 @@
-// models/User.js
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
@@ -11,7 +10,13 @@ const userSchema = new mongoose.Schema(
     avatar: { type: String }, // Optional profile picture path
     phone: { type: String }, // Optional phone number
 
-    address: { type: String }, // Simplified address as a single string
+    address: {
+      street: { type: String, default: "" },
+      city: { type: String, default: "" },
+      state: { type: String, default: "" },
+      postalCode: { type: String, default: "" },
+      country: { type: String, default: "" },
+    },
 
     role: {
       type: String,
@@ -23,7 +28,7 @@ const userSchema = new mongoose.Schema(
     updatedAt: { type: Date, default: Date.now },
   },
   {
-    timestamps: true, // Automatically manages createdAt and updatedAt
+    timestamps: true,
   }
 );
 

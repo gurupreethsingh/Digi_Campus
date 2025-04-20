@@ -26,6 +26,20 @@ import AllUsers from "../../pages/superadmin_pages/AllUsers";
 import SingleUser from "../../pages/superadmin_pages/SingleUser";
 import Profile from "../../pages/user_pages/Profile";
 import UpdateProfile from "../../pages/user_pages/UpdateProfile";
+// teacher pages
+import TeacherLogin from "../../pages/teacher_pages/TeacherLogin";
+import TeacherDashboard from "../../pages/teacher_pages/TeacherDashboard";
+// subject pages.
+import AddSubject from "../../pages/subject_pages/AddSubject";
+import AllSubjects from "../../pages/subject_pages/AllSubjects";
+import SingleSubject from "../../pages/subject_pages/SingleSubject";
+import UpdateSubject from "../../pages/subject_pages/UpdateSubject";
+
+// subject pages.
+import AddTopic from "../../pages/topic_pages/AddTopic";
+import AllTopics from "../../pages/topic_pages/AllTopics";
+import SingleTopic from "../../pages/topic_pages/SingleTopic";
+import UpdateTopic from "../../pages/topic_pages/UpdateTopic";
 
 const MainLayout = () => {
   return (
@@ -194,6 +208,119 @@ const MainLayout = () => {
               <PrivateRoute>
                 <PageTitle title="Update Profile">
                   <UpdateProfile />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          {/* teacher pages.  */}
+          <Route
+            path="/teacher-login"
+            element={
+              <PublicRoute>
+                <PageTitle title="Teacher Login">
+                  <TeacherLogin />
+                </PageTitle>
+              </PublicRoute>
+            }
+          />
+
+          <Route
+            path="/teacher-dashboard"
+            element={
+              <PrivateRoute allowedRoles={["superadmin", "teacher"]}>
+                <PageTitle title="Teacher Dashboard">
+                  <TeacherDashboard />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          {/* add subject  */}
+          <Route
+            path="/add-subject"
+            element={
+              <PrivateRoute allowedRoles={["superadmin", "teacher"]}>
+                <PageTitle title="Add Subject">
+                  <AddSubject />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/all-subjects"
+            element={
+              <PrivateRoute allowedRoles={["superadmin", "teacher"]}>
+                <PageTitle title="All Subjects">
+                  <AllSubjects />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/single-subject/:id"
+            element={
+              <PrivateRoute>
+                <PageTitle title="Single Subject">
+                  <SingleSubject />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/update-subject/:id"
+            element={
+              <PrivateRoute>
+                <PageTitle title="Update subject">
+                  <UpdateSubject />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          {/* add topic  */}
+          <Route
+            path="/add-topic"
+            element={
+              <PrivateRoute allowedRoles={["superadmin", "teacher"]}>
+                <PageTitle title="Add topic">
+                  <AddTopic />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/all-topics"
+            element={
+              <PrivateRoute allowedRoles={["superadmin", "teacher"]}>
+                <PageTitle title="All topics">
+                  <AllTopics />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/single-topic/:id"
+            element={
+              <PrivateRoute>
+                <PageTitle title="Single topic">
+                  <SingleTopic />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/update-topic/:id"
+            element={
+              <PrivateRoute>
+                <PageTitle title="Update topic">
+                  <UpdateTopic />
                 </PageTitle>
               </PrivateRoute>
             }

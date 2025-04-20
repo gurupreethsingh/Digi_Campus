@@ -11,6 +11,8 @@ const fs = require("fs");
 const UserRoutes = require("./routes/UserRoutes");
 const ContactRoutes = require("./routes/ContactRoutes");
 const BlogRoutes = require("./routes/BlogRoutes");
+const SubjectRoutes = require("./routes/SubjectRoutes");
+const TopicRoutes = require("./routes/TopicRoutes");
 
 dotenv.config();
 const app = express();
@@ -32,6 +34,8 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/api", UserRoutes);
 app.use("/api", ContactRoutes);
 app.use("/api", BlogRoutes);
+app.use("/api", SubjectRoutes);
+app.use("/api", TopicRoutes);
 
 const PORT = process.env.PORT || 3009;
 

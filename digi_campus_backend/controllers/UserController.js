@@ -77,8 +77,9 @@ const registerWithRole = async (req, res, role) => {
 // === Login Functions ===
 const loginSuperadmin = async (req, res) =>
   loginWithRole(req, res, "superadmin");
-const loginTeacher = async (req, res) => loginWithRole(req, res, "teacher");
-const loginStudent = async (req, res) => loginWithRole(req, res, "student");
+
+const teacherLogin = async (req, res) => loginWithRole(req, res, "teacher");
+const studentLogin = async (req, res) => loginWithRole(req, res, "student");
 
 const loginWithRole = async (req, res, role) => {
   try {
@@ -180,7 +181,12 @@ const getUserById = async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
-    const { name, email, phone, address } = req.body;
+    const { name, email, phone } = req.body;
+    const address =
+      typeof req.body.address === "string"
+        ? JSON.parse(req.body.address)
+        : req.body.address;
+
     const user = await User.findById(req.params.id);
     if (!user) return res.status(404).json({ message: "User not found" });
 
@@ -310,8 +316,8 @@ module.exports = {
   registerTeacher,
   registerStudent,
   loginSuperadmin,
-  loginTeacher,
-  loginStudent,
+  teacherLogin,
+  studentLogin,
   forgotPassword,
   verifyOTP,
   resetPassword,

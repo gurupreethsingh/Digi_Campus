@@ -49,15 +49,15 @@ Test scenarios for the homepage of **Digital Campus**,
 
 | # | Functional Scenario |
 |--|----------------------|
-| 1 | When the user enters the base URL (`/` or `/home` or `/homepage`), they should be navigated to the homepage without logging in. |
-| 2 | When the user enters the base URL (`/` or `/home` or `/homepage`) after logging in, they should be navigated to the homepage. |
-| 3 | When the user clicks on the logo from any page, they should be redirected to the homepage. |
-| 4 | When the user clicks the “Home” link in the header, they should be redirected to the homepage (with or without login). |
-| 5 | When the user clicks the “About” link in the header, they should be redirected to the About page (with or without login). |
-| 6 | When the user clicks the “Contact” link in the header, they should be redirected to the Contact page (with or without login). |
-| 7 | When the user clicks the “Blogs” link in the header, they should be redirected to All Blogs page (with or without login). |
-| 8 | When the user is not logged in, they should **not** see the “Dashboard” link in the header. |
-| 9 | When the user is not logged in, they should **not** see their name or dropdown in the header. |
+| 1  | When the user enters the base URL (`/` or `/home` or `/homepage`), they should be navigated to the homepage without logging in. |
+| 2  | When the user enters the base URL (`/` or `/home` or `/homepage`) after logging in, they should be navigated to the homepage. |
+| 3  | When the user clicks on the logo from any page, they should be redirected to the homepage. |
+| 4  | When the user clicks the “Home” link in the header, they should be redirected to the homepage (with or without login). |
+| 5  | When the user clicks the “About” link in the header, they should be redirected to the About page (with or without login). |
+| 6  | When the user clicks the “Contact” link in the header, they should be redirected to the Contact page (with or without login). |
+| 7  | When the user clicks the “Blogs” link in the header, they should be redirected to All Blogs page (with or without login). |
+| 8  | When the user is not logged in, they should **not** see the “Dashboard” link in the header. |
+| 9  | When the user is not logged in, they should **not** see their name or dropdown in the header. |
 | 10 | When the user is logged in, they should see the “Dashboard” link in the header. |
 | 11 | When the user is logged in, they should see their name as a dropdown on the right side of the header. |
 | 12 | When the user clicks the red “Read More” link on the homepage, they should be taken to the About page. |
