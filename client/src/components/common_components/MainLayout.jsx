@@ -45,6 +45,10 @@ import AllQuizzes from "../../pages/quiz_pages/AllQuizzes";
 import SingleQuiz from "../../pages/quiz_pages/SingleQuiz";
 import UpdateQuiz from "../../pages/quiz_pages/UpdateQuiz";
 
+// student pages.
+import StudentLogin from "../../pages/student_pages/StudentLogin";
+import StudentDashboard from "../../pages/student_pages/StudentDashboard";
+
 const MainLayout = () => {
   return (
     <div className="min-h-screen text-gray-900">
@@ -370,6 +374,29 @@ const MainLayout = () => {
               <PrivateRoute>
                 <PageTitle title="Update quiz">
                   <UpdateQuiz />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          {/* student pages..  */}
+          <Route
+            path="/student-login"
+            element={
+              <PublicRoute>
+                <PageTitle title="Student Login">
+                  <StudentLogin />
+                </PageTitle>
+              </PublicRoute>
+            }
+          />
+
+          <Route
+            path="/student-dashboard"
+            element={
+              <PrivateRoute allowedRoles={["superadmin", "student"]}>
+                <PageTitle title="Student Dashboard">
+                  <StudentDashboard />
                 </PageTitle>
               </PrivateRoute>
             }
