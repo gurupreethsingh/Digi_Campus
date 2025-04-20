@@ -240,8 +240,8 @@ const getTotalUserCount = async (req, res) => {
 
 const getStudentCount = async (req, res) => {
   try {
-    const count = await User.countDocuments({ role: "student" });
-    res.status(200).json({ count });
+    const studentCount = await User.countDocuments({ role: "student" });
+    res.status(200).json({ studentCount });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -249,8 +249,8 @@ const getStudentCount = async (req, res) => {
 
 const getTeacherCount = async (req, res) => {
   try {
-    const count = await User.countDocuments({ role: "teacher" });
-    res.status(200).json({ count });
+    const teacherCount = await User.countDocuments({ role: "teacher" });
+    res.status(200).json({ teacherCount });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -258,8 +258,8 @@ const getTeacherCount = async (req, res) => {
 
 const getSuperadminCount = async (req, res) => {
   try {
-    const count = await User.countDocuments({ role: "superadmin" });
-    res.status(200).json({ count });
+    const superadminCount = await User.countDocuments({ role: "superadmin" });
+    res.status(200).json({ superadminCount });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

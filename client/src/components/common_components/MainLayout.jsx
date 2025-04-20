@@ -40,6 +40,10 @@ import AddTopic from "../../pages/topic_pages/AddTopic";
 import AllTopics from "../../pages/topic_pages/AllTopics";
 import SingleTopic from "../../pages/topic_pages/SingleTopic";
 import UpdateTopic from "../../pages/topic_pages/UpdateTopic";
+import AddQuiz from "../../pages/quiz_pages/AddQuiz";
+import AllQuizzes from "../../pages/quiz_pages/AllQuizzes";
+import SingleQuiz from "../../pages/quiz_pages/SingleQuiz";
+import UpdateQuiz from "../../pages/quiz_pages/UpdateQuiz";
 
 const MainLayout = () => {
   return (
@@ -321,6 +325,51 @@ const MainLayout = () => {
               <PrivateRoute>
                 <PageTitle title="Update topic">
                   <UpdateTopic />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          {/* add quiz  */}
+          <Route
+            path="/add-quiz"
+            element={
+              <PrivateRoute allowedRoles={["superadmin", "teacher"]}>
+                <PageTitle title="Add quiz">
+                  <AddQuiz />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/all-quizzes"
+            element={
+              <PrivateRoute allowedRoles={["superadmin", "teacher"]}>
+                <PageTitle title="All quizs">
+                  <AllQuizzes />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/single-quiz/:id"
+            element={
+              <PrivateRoute>
+                <PageTitle title="Single quiz">
+                  <SingleQuiz />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/update-quiz/:id"
+            element={
+              <PrivateRoute>
+                <PageTitle title="Update quiz">
+                  <UpdateQuiz />
                 </PageTitle>
               </PrivateRoute>
             }

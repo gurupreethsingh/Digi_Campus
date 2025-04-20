@@ -50,9 +50,9 @@ const SuperadminDashboard = () => {
 
         setCounts({
           total: total.data.totalUserCount,
-          superadmin: superadmin.data.count,
-          teacher: teacher.data.count,
-          student: student.data.count,
+          superadmin: superadmin.data.superadminCount,
+          teacher: teacher.data.teacherCount,
+          student: student.data.studentCount,
         });
       } catch (error) {
         console.error("Failed to fetch counts", error);

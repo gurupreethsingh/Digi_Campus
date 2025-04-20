@@ -54,14 +54,27 @@ const TeacherDashboard = () => {
         const token = localStorage.getItem("token");
         const config = { headers: { Authorization: `Bearer ${token}` } };
 
-        const subjectRes = await axios.get(
-          `${globalBackendRoute}/api/count-all-subjects`,
-          config
+        const [subjectRes, topicRes, studentRes, quizStats] = await Promise.all(
+          [
+            axios.get(`${globalBackendRoute}/api/count-all-subjects`, config),
+            axios.get(`${globalBackendRoute}/api/count-all-topics`, config),
+            axios.get(`${globalBackendRoute}/api/get-student-count`, config),
+            axios.get(
+              `${globalBackendRoute}/api/quiz-stats-by-teacher/${
+                jwtDecode(token).id
+              }`,
+              config
+            ),
+          ]
         );
 
         setCounts((prev) => ({
           ...prev,
           subjects: subjectRes.data.totalSubjects,
+          topics: topicRes.data.totalTopics,
+          students: studentRes.data.studentCount,
+          tests: quizStats.data.totalQuizzes,
+          questions: quizStats.data.totalQuestions,
         }));
       } catch (error) {
         console.error("Failed to fetch teacher dashboard stats", error);
@@ -76,42 +89,42 @@ const TeacherDashboard = () => {
       title: "Subjects",
       value: counts.subjects,
       link: "/all-subjects",
-      icon: <FaBook className="text-blue-600" />,
+      icon: <FaBook />,
       bgColor: "bg-blue-100",
     },
     {
       title: "Topics",
       value: counts.topics,
       link: "/all-topics",
-      icon: <FaClipboardList className="text-green-600" />,
+      icon: <FaClipboardList />,
       bgColor: "bg-green-100",
     },
     {
-      title: "Tests",
+      title: "Quizzes",
       value: counts.tests,
-      link: "/all-tests",
-      icon: <FaFileAlt className="text-purple-600" />,
+      link: "/all-quizzes",
+      icon: <FaFileAlt />,
       bgColor: "bg-purple-100",
     },
     {
       title: "Questions",
       value: counts.questions,
       link: "/all-questions",
-      icon: <FaPlusSquare className="text-yellow-600" />,
+      icon: <FaPlusSquare />,
       bgColor: "bg-yellow-100",
     },
     {
       title: "Students",
       value: counts.students,
-      link: "/all-students",
-      icon: <FaUserGraduate className="text-cyan-600" />,
+      link: "/all-users",
+      icon: <FaUserGraduate />,
       bgColor: "bg-cyan-100",
     },
     {
       title: "Markscards",
       value: counts.markscards,
       link: "/all-markscards",
-      icon: <FaFileSignature className="text-red-600" />,
+      icon: <FaFileSignature />,
       bgColor: "bg-red-100",
     },
   ];
@@ -175,37 +188,33 @@ const TeacherDashboard = () => {
               items={[
                 {
                   label: "Add Subject",
-                  icon: <FaBook className="text-blue-600" />,
+                  icon: <FaBook />,
                   path: "/add-subject",
                 },
                 {
                   label: "Add Topics",
-                  icon: <FaClipboardList className="text-green-600" />,
+                  icon: <FaClipboardList />,
                   path: "/add-topic",
                 },
-                {
-                  label: "Add Tests",
-                  icon: <FaFileAlt className="text-purple-600" />,
-                  path: "/add-test",
-                },
+                { label: "Add Quiz", icon: <FaFileAlt />, path: "/add-quiz" },
                 {
                   label: "Add Questions",
-                  icon: <FaPlusSquare className="text-yellow-600" />,
+                  icon: <FaPlusSquare />,
                   path: "/add-questions",
                 },
                 {
                   label: "View Students",
-                  icon: <FaUserGraduate className="text-teal-600" />,
+                  icon: <FaUserGraduate />,
                   path: "/all-students",
                 },
                 {
                   label: "View Marks",
-                  icon: <FaChartLine className="text-indigo-600" />,
+                  icon: <FaChartLine />,
                   path: "/all-marks",
                 },
                 {
                   label: "Generate Markscards",
-                  icon: <FaFileSignature className="text-red-600" />,
+                  icon: <FaFileSignature />,
                   path: "/generate-markscard",
                 },
               ]}
