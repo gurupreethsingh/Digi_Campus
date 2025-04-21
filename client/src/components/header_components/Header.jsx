@@ -20,7 +20,7 @@ export default function Header() {
   const handleLogout = () => {
     setDropdownOpen(false);
     logout();
-    navigate("/login");
+    navigate("/home");
   };
 
   const goToProfile = () => {

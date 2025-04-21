@@ -40,14 +40,18 @@ import AddTopic from "../../pages/topic_pages/AddTopic";
 import AllTopics from "../../pages/topic_pages/AllTopics";
 import SingleTopic from "../../pages/topic_pages/SingleTopic";
 import UpdateTopic from "../../pages/topic_pages/UpdateTopic";
+
+// quiz pages. 
 import AddQuiz from "../../pages/quiz_pages/AddQuiz";
 import AllQuizzes from "../../pages/quiz_pages/AllQuizzes";
 import SingleQuiz from "../../pages/quiz_pages/SingleQuiz";
 import UpdateQuiz from "../../pages/quiz_pages/UpdateQuiz";
+import AttemptQuiz from "../../pages/quiz_pages/AttemptQuiz";
 
 // student pages.
 import StudentLogin from "../../pages/student_pages/StudentLogin";
 import StudentDashboard from "../../pages/student_pages/StudentDashboard";
+import AllUserMarks from "../../pages/quiz_pages/AllUserMarks";
 
 const MainLayout = () => {
   return (
@@ -360,7 +364,7 @@ const MainLayout = () => {
           <Route
             path="/single-quiz/:id"
             element={
-              <PrivateRoute>
+              <PrivateRoute allowedRoles={["superadmin", "teacher"]}>
                 <PageTitle title="Single quiz">
                   <SingleQuiz />
                 </PageTitle>
@@ -371,9 +375,31 @@ const MainLayout = () => {
           <Route
             path="/update-quiz/:id"
             element={
-              <PrivateRoute>
+              <PrivateRoute allowedRoles={["superadmin", "teacher"]}>
                 <PageTitle title="Update quiz">
                   <UpdateQuiz />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+<Route
+            path="/attempt-quiz/:id"
+            element={
+              <PrivateRoute allowedRoles={["superadmin", "teacher" , "student"]}>
+                <PageTitle title="Attempt Quiz">
+                  <AttemptQuiz />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+<Route
+            path="/all-user-marks/:id"
+            element={
+              <PrivateRoute allowedRoles={["superadmin", "teacher" , "student"]}>
+                <PageTitle title="All User Marks">
+                  <AllUserMarks />
                 </PageTitle>
               </PrivateRoute>
             }
