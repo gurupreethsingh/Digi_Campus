@@ -40,7 +40,7 @@ const AllUserMarks = () => {
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4 text-blue-700">🎓 Student Report</h2>
 
-      <div className="bg-gray-100 p-4 rounded shadow mb-6">
+      <div className="p-4 rounded shadow mb-6">
         <p><strong>Name:</strong> {userInfo?.name || "Student"}</p>
         <p><strong>Role:</strong> {userInfo?.role}</p>
       </div>
@@ -54,25 +54,25 @@ const AllUserMarks = () => {
         </div>
       )}
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full table-auto border border-gray-300 shadow">
-          <thead className="bg-gray-200">
+      <div className="overflow-x-auto rounded shadow">
+        <table className="min-w-full table-auto shadow rounded">
+          <thead className="text-center shadow">
             <tr>
-              <th className="border px-4 py-2">Quiz</th>
-              <th className="border px-4 py-2">Max Attempts</th>
-              <th className="border px-4 py-2">Attempts Made</th>
-              <th className="border px-4 py-2">Attempts Left</th>
-              <th className="border px-4 py-2">Marks (Each Attempt)</th>
+              <th className="px-4 py-2">Quiz</th>
+              <th className="px-4 py-2">Max Attempts</th>
+              <th className="px-4 py-2">Attempts Made</th>
+              <th className="px-4 py-2">Attempts Left</th>
+              <th className="px-4 py-2">Marks (Each Attempt)</th>
             </tr>
           </thead>
           <tbody>
             {quizzes.map((quiz) => (
-              <tr key={quiz._id} className="text-center">
-                <td className="border px-4 py-2">{quiz.title}</td>
-                <td className="border px-4 py-2">{quiz.maxAttempts}</td>
-                <td className="border px-4 py-2">{quiz.attempts.length}</td>
-                <td className="border px-4 py-2">{quiz.maxAttempts - quiz.attempts.length}</td>
-                <td className="border px-4 py-2">
+              <tr key={quiz._id} className="text-center shadow ">
+                <td className="px-4 py-2">{quiz.title}</td>
+                <td className="px-4 py-2">{quiz.maxAttempts}</td>
+                <td className="px-4 py-2">{quiz.attempts.length}</td>
+                <td className="px-4 py-2">{quiz.maxAttempts - quiz.attempts.length}</td>
+                <td className="px-4 py-2">
                   {quiz.attempts.map((a, i) => (
                     <span key={i} className="inline-block bg-blue-100 text-blue-800 px-2 py-1 m-1 rounded text-sm">
                       Attempt {i + 1}: {a.totalScore}
@@ -82,7 +82,7 @@ const AllUserMarks = () => {
               </tr>
             ))}
             {quizzes.length === 0 && (
-              <tr>
+              <tr className="shadow">
                 <td colSpan="5" className="text-center p-4 text-gray-500">No attempts yet.</td>
               </tr>
             )}
