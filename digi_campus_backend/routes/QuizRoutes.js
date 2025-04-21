@@ -38,4 +38,8 @@ router.get(
   QuizController.getQuizStatsByTeacher
 );
 
+router.get("/user-attempts/:studentId", QuizController.getQuizzesByStudent);
+
+router.post("/submit-quiz", QuizController.submitQuizAttempt);
+
 module.exports = router;

@@ -267,3 +267,62 @@ exports.getQuizStatsByTeacher = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+
+// === Get All Quizzes with Attempts for a Specific Student ===
+exports.getQuizzesByStudent = async (req, res) => {
+  try {
+    const { studentId } = req.params;
+    const quizzes = await Quiz.find({ "attempts.student": studentId })
+      .populate("subject createdBy")
+      .lean();
+
+    // Filter attempts per quiz
+    const data = quizzes.map((quiz) => {
+      const studentAttempts = quiz.attempts.filter(
+        (a) => a.student.toString() === studentId
+      );
+      return {
+        _id: quiz._id,
+        title: quiz.title,
+        subject: quiz.subject?.title || "N/A",
+        maxAttempts: quiz.maxAttempts,
+        gradingMethod: quiz.gradingMethod,
+        attempts: studentAttempts,
+      };
+    });
+
+    res.status(200).json({ success: true, data });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+
+exports.submitQuizAttempt = async (req, res) => {
+  try {
+    const { quizId, studentId, answers, totalScore, durationTaken } = req.body;
+
+    const attempt = {
+      student: studentId,
+      totalScore,
+      durationTaken,
+      responses: Object.entries(answers).map(([questionIndex, answer]) => ({
+        questionIndex: Number(questionIndex),
+        answer,
+        obtainedMarks: 0, // optionally calculate per-question marks here
+        teacherComment: ""
+      })),
+    };
+
+    const quiz = await Quiz.findById(quizId);
+    if (!quiz) return res.status(404).json({ success: false, message: "Quiz not found" });
+
+    quiz.attempts.push(attempt);
+    await quiz.save();
+
+    res.status(200).json({ success: true, message: "Attempt recorded successfully" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};

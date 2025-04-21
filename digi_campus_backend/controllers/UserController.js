@@ -181,7 +181,7 @@ const getUserById = async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
-    const { name, email, phone } = req.body;
+    const { name, email, phone, role } = req.body;
     const address =
       typeof req.body.address === "string"
         ? JSON.parse(req.body.address)
@@ -194,6 +194,7 @@ const updateUser = async (req, res) => {
     if (email) user.email = email;
     if (phone) user.phone = phone;
     if (address) user.address = address;
+    if (role) user.role = role; // ✅ FIX ADDED HERE
 
     if (req.file) {
       const newAvatarPath = `uploads/${user.role}/${req.file.filename}`;
@@ -211,6 +212,7 @@ const updateUser = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
 
 const deleteUser = async (req, res) => {
   try {

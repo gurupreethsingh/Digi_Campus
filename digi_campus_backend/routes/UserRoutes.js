@@ -88,7 +88,7 @@ router.put(
 router.delete("/delete-user/:id", authenticateToken, deleteUser);
 
 router.get("/all-users", authenticateToken, getAllUsers);
-router.get("/user/:id", authenticateToken, getUserById);
+router.get("/single-user/:id", authenticateToken, getUserById);
 router.get("/user", authenticateToken, getLoggedInUser);
 
 // === Count Routes ===

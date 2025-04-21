@@ -13,40 +13,9 @@ import { toast } from "react-toastify";
 import globalBackendRoute from "../../config/Config";
 
 const roles = [
-  "accountant",
-  "admin",
-  "alumni_relations",
-  "business_analyst",
-  "content_creator",
-  "course_coordinator",
-  "customer_support",
-  "data_scientist",
-  "delivery_agent",
-  "department_head",
-  "developer",
-  "employee",
-  "event_coordinator",
-  "hr_manager",
-  "intern",
-  "legal_advisor",
-  "maintenance_staff",
-  "marketing_manager",
-  "operations_manager",
-  "outlet",
-  "product_owner",
-  "project_manager",
-  "qa_lead",
-  "recruiter",
-  "registrar",
-  "researcher",
-  "sales_executive",
-  "superadmin",
-  "support_engineer",
-  "tech_lead",
-  "test_engineer",
-  "user",
-  "ux_ui_designer",
-  "vendor",
+  "teacher",
+  "student",
+  "superadmin"
 ].sort();
 
 export default function SingleUser() {
@@ -72,8 +41,9 @@ export default function SingleUser() {
         setImageSrc(
           user.avatar
             ? `${globalBackendRoute}/${user.avatar.replace(/\\/g, "/")}`
-            : "https://via.placeholder.com/150?text=No+Image"
+            : "https://placehold.co/150x150?text=No+Image"
         );
+        
       } catch (err) {
         console.error("Fetch Error:", err);
         toast.error("Failed to fetch user.");
@@ -94,11 +64,11 @@ export default function SingleUser() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `${globalBackendRoute}/api/update-user-role/${id}`,
+        `${globalBackendRoute}/api/update-user/${id}`,
         { role: newRole },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      toast.success("Role updated!");
+      alert(`Role is updated to "${newRole}"`);
       window.location.reload();
     } catch (err) {
       console.error("Update Error:", err);

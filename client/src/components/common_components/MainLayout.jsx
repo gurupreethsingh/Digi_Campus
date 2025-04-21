@@ -76,6 +76,15 @@ const MainLayout = () => {
               </PageTitle>
             }
           />
+
+<Route
+            path="/homepage"
+            element={
+              <PageTitle title="Home">
+                <Homepage />
+              </PageTitle>
+            }
+          />
           <Route
             path="/about-us"
             element={
