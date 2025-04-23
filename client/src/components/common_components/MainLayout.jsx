@@ -41,7 +41,7 @@ import AllTopics from "../../pages/topic_pages/AllTopics";
 import SingleTopic from "../../pages/topic_pages/SingleTopic";
 import UpdateTopic from "../../pages/topic_pages/UpdateTopic";
 
-// quiz pages. 
+// quiz pages.
 import AddQuiz from "../../pages/quiz_pages/AddQuiz";
 import AllQuizzes from "../../pages/quiz_pages/AllQuizzes";
 import SingleQuiz from "../../pages/quiz_pages/SingleQuiz";
@@ -52,6 +52,9 @@ import AttemptQuiz from "../../pages/quiz_pages/AttemptQuiz";
 import StudentLogin from "../../pages/student_pages/StudentLogin";
 import StudentDashboard from "../../pages/student_pages/StudentDashboard";
 import AllUserMarks from "../../pages/quiz_pages/AllUserMarks";
+
+// chat pages.
+import Chat from "../../pages/chat_pages/Chat";
 
 const MainLayout = () => {
   return (
@@ -77,7 +80,7 @@ const MainLayout = () => {
             }
           />
 
-<Route
+          <Route
             path="/homepage"
             element={
               <PageTitle title="Home">
@@ -392,10 +395,10 @@ const MainLayout = () => {
             }
           />
 
-<Route
+          <Route
             path="/attempt-quiz/:id"
             element={
-              <PrivateRoute allowedRoles={["superadmin", "teacher" , "student"]}>
+              <PrivateRoute allowedRoles={["superadmin", "teacher", "student"]}>
                 <PageTitle title="Attempt Quiz">
                   <AttemptQuiz />
                 </PageTitle>
@@ -403,10 +406,10 @@ const MainLayout = () => {
             }
           />
 
-<Route
+          <Route
             path="/all-user-marks/:id"
             element={
-              <PrivateRoute allowedRoles={["superadmin", "teacher" , "student"]}>
+              <PrivateRoute allowedRoles={["superadmin", "teacher", "student"]}>
                 <PageTitle title="All User Marks">
                   <AllUserMarks />
                 </PageTitle>
@@ -432,6 +435,17 @@ const MainLayout = () => {
               <PrivateRoute allowedRoles={["superadmin", "student"]}>
                 <PageTitle title="Student Dashboard">
                   <StudentDashboard />
+                </PageTitle>
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/chat"
+            element={
+              <PrivateRoute>
+                <PageTitle title="Chat">
+                  <Chat />
                 </PageTitle>
               </PrivateRoute>
             }
